@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "devDependencies": {
+    "http-server": "0.10.0",
+    "lerna": "^2.0.0-rc.5"
+  }
+}
