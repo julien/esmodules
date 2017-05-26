@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build": "npm run bundle && npm run compile",
-    "bundle": "rollup ../assets/cats/app.js -f iife -o dist/bundle.js",
+    "bundle": "rollup src/app.js -f iife -o dist/bundle.js",
     "compile": "buble dist/bundle.js -m -o dist/bundle.es5.js"
   },
   "keywords": [],

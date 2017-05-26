@@ -2,7 +2,6 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Cats, cats, cats</title>
 
   <style>
     .container {
@@ -34,21 +33,21 @@
   <div class="container">
     <span class="error error-hidden"><strong>
      sorry, we couldn't find a cat</strong></span>
-  <button class="width100 padding4 margin4">Click me!</button>
+  <button class="width100 padding4 margin4">Load a random image</button>
   <img class="img hidden"></img>
   </div>
 
   <!-- "compiled" version -->
-  <script async src="dist/bundle.es5.js"></script>
+  <!-- <script async src="dist/bundle.es5.js"></script> -->
 
   <!-- "dev" version -->
-  <!-- <script type="module" src="src/app.js"></script> -->
-  <!-- <script nomodule> -->
-  <!--   var container = document.querySelector('.container'); -->
-  <!--   container.classList.add('error&#45;hidden'); -->
-  <!--   var t = document.createTextNode('Sorry, no modules for you!'); -->
-  <!--   document.body.appendChild(t); -->
-  <!-- </script> -->
-  <!--  -->
+  <script type="module" src="src/app.js"></script>
+  <script nomodule>
+    var container = document.querySelector('.container');
+    container.classList.add('error-hidden');
+    var t = document.createTextNode('Sorry, no modules for you!');
+    document.body.appendChild(t);
+  </script>
+
 </body>
 </html>

@@ -1,4 +1,3 @@
-
 import EventEmitter from './events.js';
 import {loadImage} from './api.js';
 
@@ -16,6 +15,7 @@ window.addEventListener('load', () => {
 
   emitter.on('loadImage', onLoad);
   emitter.on('loadError', e => {
+    btn.disabled = '';
     errorEl.classList.remove('error-hidden');
 
     let timeout = setTimeout(() => {
@@ -29,9 +29,13 @@ window.addEventListener('load', () => {
   emitter.emit('loadImage');
 
   function onLoad() {
+    btn.disabled = 'disabled';
     hideImage();
     return loadImage()
-      .then(renderImage)
+      .then(src => {
+        renderImage(src);
+        btn.disabled = '';
+      })
       .catch(e => {
         emitter.emit('loadError', e);
       });

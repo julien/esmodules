@@ -17,16 +17,17 @@
       justify-content: center;
     }
     .container{display:flex;flex-direction:column}
-    .img{background-color:#666}
-    .input{font-size:1.3em;padding:4px}
+    .btn{font-weight:bold;padding:4px;text-transform:uppercase}
   </style>
 </head>
 <body>
   <div class="container">
-    <input class="input" type="text" placeholder="whatever you want">
-    <img class="img" width="285" height="285"/>
-    <canvas id="canvas" width="285" height="285"></canvas>
+    <button class="btn">Load a random image</button>
+    <canvas id="canvas" width="512" height="512"></canvas>
   </div>
+
+  <!-- <script src="dist/bundle.es5.js"></script> -->
+
   <script type="module" src="src/app.js"></script>
 </body>
 </html>

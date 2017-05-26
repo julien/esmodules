@@ -1,21 +1,28 @@
 import Renderer from './renderer.js';
-import {debounce} from './util.js';
 
 window.addEventListener('load', () => {
 
-  const imgEl = document.querySelector('img');
-  const inputEl = document.querySelector('input[type="text"]');
-
   const renderer = new Renderer('canvas');
 
-
-  inputEl.addEventListener('input', debounce(onInput, 1000));
-
-  function onInput() {
-    const name = inputEl.value;
-    if (name.length > 0) {
-      imgEl.src = `https://api.adorable.io/avatars/285/${name}.png`;
-    }
+  const btn = document.querySelector('button');
+  btn.addEventListener('click', onClick);
+  function onClick() {
+    btn.disabled = 'disabled';
+    renderer.loadImage('https://unsplash.it/512?random')
+      .then(() => {
+        btn.disabled = '';
+      });
   }
 
+  let then = 0;
+  function loop(time) {
+    requestAnimationFrame(loop);
+
+    const now = time * 0.001;
+    const deltaTime = Math.min(0.1, now - then);
+    then = now;
+
+    renderer.render(now);
+  }
+  loop();
 });

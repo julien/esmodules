@@ -1,6 +1,5 @@
-
 export function loadImage() {
-  return fetch('http://thecatapi.com/api/images/get')
+  return fetch(`https://unsplash.it/512?random&cache_bust=${Date.now()}`)
     .then(resp => {
       return resp.blob();
     })
