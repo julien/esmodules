@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "npm run bundle && npm run compile",
+    "bundle": "rollup src/app.js -f iife -o dist/bundle.js",
+    "compile": "buble dist/bundle.js -m -o dist/bundle.es5.js"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "buble": "0.15.2",
+    "rollup": "0.41.6"
+  }
+}
