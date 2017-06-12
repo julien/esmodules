@@ -6,6 +6,7 @@
     "prettier": "^1.4.4"
   },
   "scripts": {
-    "start": "http-server -c-1 -s"
+    "start": "http-server -c-1 -s",
+    "format": "prettier --write **/*.js"
   }
 }
