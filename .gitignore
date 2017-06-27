@@ -1,4 +1,4 @@
+*-lock.json
+*.log
 dist/
 node_modules/
-*.log
-
