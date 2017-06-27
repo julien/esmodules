@@ -26,15 +26,13 @@
     <canvas id="canvas" width="512" height="512"></canvas>
   </div>
 
-  <!-- <script src="dist/bundle.es5.js"></script> -->
-
   <script type="module" src="src/app.js"></script>
   <script nomodule>
-    var container = document.querySelector('.container');
-    container.classList.add('error-hidden');
-    var t = document.createTextNode('Sorry, no modules for you!');
-    document.body.appendChild(t);
+    var script = document.createElement('script');
+    script.src = 'dist/bundle.es5.js';
+    document.body.appendChild(script);
   </script>
+
 </body>
 </html>
 

@@ -37,6 +37,8 @@ void main() {
   direction.x *= v_resolution.x / v_resolution.y;
   st *= sin(length(direction));
   st *= mix(st.y, cos(float(length(direction * 0.3))), 0.9);
+  st.x *= cos(float(u_time * sin(direction * 0.04)));
+  st.y *= sin(float(u_time * cos(direction * 0.04)));
   direction *= cos(u_time * 0.3);
 
   st.xy += cos(u_time * 0.01) * sin(u_time * 0.023);

@@ -31,5 +31,7 @@ window.addEventListener("load", () => {
 
     renderer.render(now);
   }
+
+  onClick();
   loop();
 });

@@ -1,5 +1,5 @@
-import { vertShader, fragShader } from "./shader.js";
-import { createProgram, createShader, loadTexture } from "./gl.js";
+import {vertShader, fragShader} from './shader.js';
+import {createProgram, createShader, loadTexture} from './gl.js';
 
 export default class Renderer {
   constructor(canvasId) {
@@ -8,9 +8,9 @@ export default class Renderer {
 
   initialize(canvasId) {
     const canvas = document.getElementById(canvasId);
-    const gl = canvas.getContext("webgl2");
+    const gl = canvas.getContext('webgl2');
     if (gl === null) {
-      throw new Error("unable to get WebGL context");
+      throw new Error('unable to get WebGL context');
     }
     this.gl = gl;
 
@@ -18,11 +18,11 @@ export default class Renderer {
     this.gl.useProgram(this.program);
 
     this.data = {
-      a_position: this.gl.getAttribLocation(this.program, "a_position"),
-      a_texCoord: this.gl.getAttribLocation(this.program, "a_texCoord"),
-      u_resolution: this.gl.getUniformLocation(this.program, "u_resolution"),
-      u_image: this.gl.getUniformLocation(this.program, "u_image"),
-      u_time: this.gl.getUniformLocation(this.program, "u_time")
+      a_position: this.gl.getAttribLocation(this.program, 'a_position'),
+      a_texCoord: this.gl.getAttribLocation(this.program, 'a_texCoord'),
+      u_resolution: this.gl.getUniformLocation(this.program, 'u_resolution'),
+      u_image: this.gl.getUniformLocation(this.program, 'u_image'),
+      u_time: this.gl.getUniformLocation(this.program, 'u_time'),
     };
 
     var vao = gl.createVertexArray();
@@ -49,9 +49,9 @@ export default class Renderer {
         1.0,
         0.0,
         1.0,
-        1.0
+        1.0,
       ]),
-      this.gl.STATIC_DRAW
+      this.gl.STATIC_DRAW,
     );
     gl.enableVertexAttribArray(this.data.a_texCoord);
     gl.vertexAttribPointer(this.data.a_texCoord, 2, this.gl.FLOAT, false, 0, 0);
@@ -62,7 +62,7 @@ export default class Renderer {
     this.gl.uniform2f(
       this.data.u_resolution,
       this.gl.canvas.width,
-      this.gl.canvas.height
+      this.gl.canvas.height,
     );
   }
 
@@ -74,22 +74,22 @@ export default class Renderer {
     this.gl.texParameteri(
       this.gl.TEXTURE_2D,
       this.gl.TEXTURE_WRAP_S,
-      this.gl.CLAMP_TO_EDGE
+      this.gl.CLAMP_TO_EDGE,
     );
     this.gl.texParameteri(
       this.gl.TEXTURE_2D,
       this.gl.TEXTURE_WRAP_T,
-      this.gl.CLAMP_TO_EDGE
+      this.gl.CLAMP_TO_EDGE,
     );
     this.gl.texParameteri(
       this.gl.TEXTURE_2D,
       this.gl.TEXTURE_MIN_FILTER,
-      this.gl.NEAREST
+      this.gl.NEAREST,
     );
     this.gl.texParameteri(
       this.gl.TEXTURE_2D,
       this.gl.TEXTURE_MAG_FILTER,
-      this.gl.NEAREST
+      this.gl.NEAREST,
     );
 
     return tex;
@@ -104,7 +104,7 @@ export default class Renderer {
     this.gl.bufferData(
       this.gl.ARRAY_BUFFER,
       new Float32Array([x1, y1, x2, y1, x1, y2, x1, y2, x2, y1, x2, y2]),
-      this.gl.STATIC_DRAW
+      this.gl.STATIC_DRAW,
     );
   }
 
@@ -115,7 +115,7 @@ export default class Renderer {
       this.gl.RGBA,
       this.gl.RGBA,
       this.gl.UNSIGNED_BYTE,
-      this.image
+      this.image,
     );
   }
 
